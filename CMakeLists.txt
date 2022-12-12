@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14...3.22)
 # ---- Project ----
 project(Exemplo VERSION 1.0 LANGUAGES CXX)
-set(PROJECT_BIN "exemplo.bin")
+set(PROJECT_BIN "carta.bin")
 include(cmake/all.cmake)
 
 add_subdirectory(source)

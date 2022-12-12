@@ -4,6 +4,6 @@ LABEL Description="Docker for embedded development"
 
 WORKDIR /workspaces
 
-USER $USERNAME
+USER $geisniwander
 
 CMD ["/bin/bash"]
