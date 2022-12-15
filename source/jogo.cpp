@@ -6,6 +6,7 @@
 namespace trabalho {
 
 void Jogo::jogar() {
+    long unsigned int comprarCarta = 100;
     std::string iniciar = "S";
     std::string terminar = "N";
     std::string msgInvalida = "CARTA INVÁLIDA! Digite o número da carta que deseja jogar, ou 100 para comprar uma nova carta: ";
@@ -24,7 +25,7 @@ void Jogo::jogar() {
                     long unsigned int escolhida = 100;
                     std::cout << msgJogue;
                     std::cin >> escolhida;
-                    while (escolhida > (bj->get_size() - 1) && escolhida != 100) {
+                    while (escolhida > (bj->get_size() - 1) && escolhida != comprarCarta) {
                         std::cout << msgInvalida;
                         std::cin >> escolhida;
                     }
@@ -34,7 +35,7 @@ void Jogo::jogar() {
                         std::cout << *pj;
                         std::cout << msgJogue;
                         std::cin >> escolhida;
-                        while (escolhida > (bj->get_size() - 1) && escolhida != 100) {
+                        while (escolhida > (bj->get_size() - 1) && escolhida != comprarCarta) {
                             std::cout << msgInvalida;
                             std::cin >> escolhida;
                         }
@@ -82,11 +83,11 @@ void Jogo::jogar() {
                     long unsigned int escolhida = 100;
                     std::cout << msgJogue;
                     std::cin >> escolhida;
-                    while (escolhida > (bj2->get_size() - 1) && escolhida != 100) {
+                    while (escolhida > (bj2->get_size() - 1) && escolhida != comprarCarta) {
                         std::cout << msgInvalida;
                         std::cin >> escolhida;
                     }
-                    while (escolhida == 100) {
+                    while (escolhida == comprarCarta) {
                         if (b1->get_size() <= 1) {
                         } else {
                             bj2->comprar(*b1, 1);
@@ -94,7 +95,7 @@ void Jogo::jogar() {
                             std::cout << *pj;
                             std::cout << msgJogue;
                             std::cin >> escolhida;
-                            while (escolhida > (bj2->get_size() - 1) && escolhida != 100) {
+                            while (escolhida > (bj2->get_size() - 1) && escolhida != comprarCarta) {
                                 std::cout << msgInvalida;
                                 std::cin >> escolhida;
                             }

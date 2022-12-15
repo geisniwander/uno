@@ -39,15 +39,11 @@ ___
 
  Quando o jogo inicia o sistema gera o baralho de jogo e sorteia 2 baralhos de jogador com 7 cartas cada, o jogo sempre começa com o jogador 1.
 
- Na tela, irá aparecer as informações de qual jogador é a vez, também, as cartas que ele têm e a carta que esta na pilha.
+ Na tela, irá aparecer as as cartas que o jogador tem disponíveis e a carta que esta na pilha.
  > *OBS:* 
  O jogador tem que escolher uma carta do baralho dele que tenha as mesmas caracteristicas da carta da pilha, seja o número, a cor, ou a carta de "ação".
 
  Para selecionar a carta a ser jogada, o jogador tem que digitar apenas o número que aparece entre colchetes **[]** antes de cada carta.
-
-<h1 align="center">
-    <img src="midia/seleciona_carta.png">
-</h1>
 
 Caso o jogador *não tenha* uma carta com as caraterísticas necessárias, ele pode comprar uma nova digitando o número **100** até uma carta do tipo aparecer.
 
