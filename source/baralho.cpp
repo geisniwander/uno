@@ -1,19 +1,26 @@
-#include "baralho.h"
-
+#include "exemplo/baralho.h"
 #include <algorithm>
 #include <climits>
 #include <memory>
 #include <random>
 #include <vector>
-
-#include "carta.h"
-#include "ponteiros.cpp"
+#include "exemplo/carta.h"
 
 namespace trabalho {
 std::random_device rd;
 std::mt19937 gen(rd());
 
-/*-------------POLIMORFISMO------------------*/
+void PilhaJogo::muda_cor(int cor) {
+    if (cor == 1)
+        pilhaJogo.push_back(Carta("Amarela,", "20", "normal"));
+    else if (cor == 2)
+        pilhaJogo.push_back(Carta("Azul,", "20", "normal"));
+    else if (cor == 3)
+        pilhaJogo.push_back(Carta("Verde,", "20", "normal"));
+    else if (cor == 4)
+        pilhaJogo.push_back(Carta("Vermelha,", "20", "normal"));
+}
+/*---------------POLIMORFISMO---------------*/
 Carta Baralho::get_c(long unsigned int i) {
     return baralho.at(i);
 }
@@ -23,7 +30,7 @@ Carta BaralhoJogador::get_c(long unsigned int i) {
 Carta PilhaJogo::get_c(long unsigned int i) {
     return pilhaJogo.at(i);
 }
-/*-------------POLIMORFISMO------------------*/
+/*---------------POLIMORFISMO---------------*/
 
 long unsigned int Baralho::get_size() {
     long unsigned int size = baralho.size();
@@ -51,15 +58,25 @@ void BaralhoJogador::eraseCj(long unsigned int i) {
 void PilhaJogo::adicionaCarta(Carta& a) {
     pilhaJogo.push_back(a);
 }
-void BaralhoJogador::comprar(Baralho& b) {
-    if (b.get_size() <= 1) {
+void BaralhoJogador::comprar(Baralho& b, long unsigned int qtd) {
+    if (b.get_size() <= qtd) {
         return;
     } else {
-        long unsigned int rand = random(0, b.get_size() - 1);
-        int abbreviated_rand = rand & INT_MAX;
-        Carta comprada = b.get_c(rand);
-        baralhoJogador.push_back(comprada);
-        b.eraseC(abbreviated_rand);
+        for (long unsigned int i = 0; i < qtd; i++) {
+            long unsigned int rand = random(0, b.get_size() - 1);
+            int abbreviated_rand = rand & INT_MAX;
+            Carta comprada = b.get_c(rand);
+            baralhoJogador.push_back(comprada);
+            b.eraseC(abbreviated_rand);
+        }
     }
 }
+
+bool BaralhoJogador::verificaVitoria() {
+    if ((baralhoJogador.size() - 1) == 0)
+        return true;
+    else
+        return false;
+}
+
 }  // namespace trabalho

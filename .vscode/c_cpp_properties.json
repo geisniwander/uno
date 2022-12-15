@@ -3,7 +3,9 @@
         {
             "name": "STM32F407",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include/exemplo",
+                "${workspaceFolder}/source"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

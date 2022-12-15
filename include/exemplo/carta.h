@@ -18,15 +18,15 @@ class Carta {
         valor = b;
         tipo = c;
     }
-    ~Carta() {}
+    ~Carta() = default;
     std::string get_cor();
     std::string get_valor();
     std::string get_tipo();
     void set_cor(std::string a);
     void set_valor(std::string a);
     void set_tipo(std::string a);
+    bool compara(Carta &pilha);
 };
-/*-------CLASSES, MÉTODOS, ATRIBUTOS, CONTRUTORES E DESTRUIDORES----------*/
 
 /*-------SOBRECARGA DE OPERADOR----------*/
 std::ostream &operator<<(std::ostream &saida, Carta &c) {
@@ -34,5 +34,6 @@ std::ostream &operator<<(std::ostream &saida, Carta &c) {
     return saida;
 }
 /*-------SOBRECARGA DE OPERADOR----------*/
+
 }  // namespace trabalho
 #endif

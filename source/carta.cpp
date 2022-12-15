@@ -1,9 +1,16 @@
-#include "carta.h"
+#include "exemplo/carta.h"
 
 #include <iostream>
 #include <string>
 
 namespace trabalho {
+
+bool Carta::compara(Carta &pilha) {
+    if (cor == pilha.get_cor() || valor == pilha.get_valor() || tipo == "especial" || (tipo != pilha.get_tipo())) {
+        return true;
+    }
+    return false;
+}
 
 std::string Carta::get_cor() {
     return cor;

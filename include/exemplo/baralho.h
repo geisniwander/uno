@@ -62,12 +62,8 @@ class Baralho {
             baralho.push_back({"Preta,", "Muda Cor", "especial"});
         }
     }
-    /*-------------POLIMORFISMO------------------*/
-    virtual ~Baralho() {
-        delete[] & baralho;
-    }
+    virtual ~Baralho() = default;
     virtual Carta get_c(long unsigned int i);
-    /*-------------POLIMORFISMO------------------*/
     Carta cartas();
     void eraseC(int i);
     long unsigned int get_size();
@@ -81,6 +77,7 @@ class BaralhoJogador : public Baralho {
     std::vector<Carta> baralhoJogador;
 
    public:
+    BaralhoJogador() {}
     BaralhoJogador(Baralho &b) {
         for (int i = 0; i <= 7; i++) {
             long unsigned int rand = random(0, b.get_size());
@@ -90,13 +87,12 @@ class BaralhoJogador : public Baralho {
             b.eraseC(abbreviated_rand);
         }
     }
-    /*-------------POLIMORFISMO------------------*/
     virtual ~BaralhoJogador() {}
     virtual Carta get_c(long unsigned int i);
-    /*-------------POLIMORFISMO------------------*/
     long unsigned int get_size();
     void eraseCj(long unsigned int i);
-    void comprar(Baralho &b);
+    void comprar(Baralho &b, long unsigned int qtd);
+    bool verificaVitoria();
 };
 
 class PilhaJogo : public Baralho {
@@ -104,6 +100,7 @@ class PilhaJogo : public Baralho {
     std::vector<Carta> pilhaJogo;
 
    public:
+    PilhaJogo() {}
     PilhaJogo(Baralho &b) {
         long unsigned int rand = random(0, b.get_size() - 1);
         int abbreviated_rand = rand & INT_MAX;
@@ -111,14 +108,14 @@ class PilhaJogo : public Baralho {
         pilhaJogo.push_back(t);
         b.eraseC(abbreviated_rand);
     }
-    /*-------------POLIMORFISMO------------------*/
     virtual ~PilhaJogo() {}
     virtual Carta get_c(long unsigned int i);
-    /*-------------POLIMORFISMO------------------*/
     long unsigned int get_size();
     void adicionaCarta(Carta &a);
+    void muda_cor(int cor);
 };
 /*---------------HERANÇA-------------------*/
+
 
 /*-------SOBRECARGA DE OPERADORES----------*/
 std::ostream &operator<<(std::ostream &saida, Baralho &c) {
@@ -130,6 +127,9 @@ std::ostream &operator<<(std::ostream &saida, Baralho &c) {
 }
 
 std::ostream &operator<<(std::ostream &saida, BaralhoJogador &c) {
+    saida << "---------------------------------" << std::endl;
+    saida << "Próximo Jogador" << std::endl;
+    saida << "Cartas do jogador atual:" << std::endl;
     for (long unsigned int i = 0; i <= (c.get_size()) - 1; i++) {
         Carta t = c.get_c(i);
         saida << "Carta [" << i << "]: " << t;
@@ -138,8 +138,11 @@ std::ostream &operator<<(std::ostream &saida, BaralhoJogador &c) {
 }
 
 std::ostream &operator<<(std::ostream &saida, PilhaJogo &c) {
+    saida << "---------------------------------" << std::endl;
+    saida << "Carta da pilha: " << std::endl;
     Carta t = c.get_c(c.get_size() - 1);
     saida << t;
+    saida << "---------------------------------" << std::endl;
     return saida;
 }
 /*-------SOBRECARGA DE OPERADORES----------*/

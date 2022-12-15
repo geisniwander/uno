@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  cppstart:
-    image: cppstart
-    build:
-      context: .
-      dockerfile: ./Dockerfile

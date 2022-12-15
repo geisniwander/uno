@@ -1,0 +1,27 @@
+📄 DETALHES DA IMPLEMENTAÇÃO
+
+* Dê preferência na utilização do compilador [GCC 11.3.1 x86_64-redhat-linux]
+* Classe(s), atributos e métodos;
+* Sobrecarga de operação;
+* Herança;
+* Polimorfismo.
+
+CLASSE(S), ATRIBUTOS, MÉTODOS, CONSTRUTORES E DESTRUTORES
+
+- Foi usado Classe(s), Atributos, Métodos, Construtores e Destrutoras na linha 9 á 29 na classe Carta em carta.h;
+
+- Foi usado encapsulamento na linha 10 á 28 na classe Baralho em carta.h;
+
+
+SOBRECARGA DE OPERADORES
+
+- Foi usado Sobrecarga de Operadores na linha 120 á 147 em baralho.h;
+
+HERANÇA
+
+- Foi usado herança na linha 75 á 117 nas classe BaralhoJogador e PilhaJogo em baralho.h;
+
+POLIMORFISMO
+
+- Foi usado polimorfismo na linha 23 á 33 em baralho.cpp;
+
