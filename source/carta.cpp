@@ -4,6 +4,12 @@
 #include <string>
 
 namespace trabalho {
+    
+Carta::Carta(std::string a, std::string b, std::string c) {
+        cor = a;
+        valor = b;
+        tipo = c;
+}
 
 bool Carta::compara(Carta &pilha) {
     if (cor == pilha.get_cor() || valor == pilha.get_valor() || tipo == "especial" || (tipo != pilha.get_tipo())) {

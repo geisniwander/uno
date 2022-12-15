@@ -1,14 +1,83 @@
 #include "exemplo/baralho.h"
+
 #include <algorithm>
 #include <climits>
 #include <memory>
 #include <random>
 #include <vector>
+
 #include "exemplo/carta.h"
 
 namespace trabalho {
 std::random_device rd;
 std::mt19937 gen(rd());
+
+BaralhoJogador::BaralhoJogador(Baralho& b) {
+    for (int i = 0; i <= 7; i++) {
+        long unsigned int rand = random(0, b.get_size());
+        int abbreviated_rand = rand & INT_MAX;
+        Carta t = b.get_c(rand);
+        baralhoJogador.push_back(t);
+        b.eraseC(abbreviated_rand);
+    }
+}
+
+Baralho::Baralho() {
+    for (int i = 0; i <= 2; i++) {
+        for (int j = 0; j <= 9; j++) {
+            baralho.push_back({"Azul,", std::to_string(j), "normal"});
+        }
+    }
+    for (int i = 0; i <= 2; i++) {
+        for (int j = 0; j <= 9; j++) {
+            baralho.push_back({"Amarela,", std::to_string(j), "normal"});
+        }
+    }
+    for (int i = 0; i <= 2; i++) {
+        for (int j = 0; j <= 9; j++) {
+            baralho.push_back({"Verde,", std::to_string(j), "normal"});
+        }
+    }
+    for (int i = 0; i <= 2; i++) {
+        for (int j = 0; j <= 9; j++) {
+            baralho.push_back({"Vermelha,", std::to_string(j), "normal"});
+        }
+    }
+    for (int i = 0; i <= 1; i++) {
+        baralho.push_back({"Azul,", "+2", "normal"});
+        baralho.push_back({"Azul,", "Bloqueia", "normal"});
+        baralho.push_back({"Azul,", "Volta", "normal"});
+    }
+    for (int i = 0; i <= 1; i++) {
+        baralho.push_back({"Amarela,", "+2", "normal"});
+        baralho.push_back({"Amarela,", "Bloqueia", "normal"});
+        baralho.push_back({"Amarela,", "Volta", "normal"});
+    }
+    for (int i = 0; i <= 1; i++) {
+        baralho.push_back({"Verde,", "+2", "normal"});
+        baralho.push_back({"Verde,", "Bloqueia", "normal"});
+        baralho.push_back({"Verde,", "Volta", "normal"});
+    }
+    for (int i = 0; i <= 1; i++) {
+        baralho.push_back({"Vermelha,", "+2", "normal"});
+        baralho.push_back({"Vermelha,", "Bloqueia", "normal"});
+        baralho.push_back({"Vermelha,", "Volta", "normal"});
+    }
+    for (int i = 0; i <= 3; i++) {
+        baralho.push_back({"Preta,", "Compra +4", "especial"});
+    }
+    for (int i = 0; i <= 3; i++) {
+        baralho.push_back({"Preta,", "Muda Cor", "especial"});
+    }
+}
+
+PilhaJogo::PilhaJogo(Baralho& b) {
+    long unsigned int rand = random(0, b.get_size() - 1);
+    int abbreviated_rand = rand & INT_MAX;
+    Carta t = b.get_c(rand);
+    pilhaJogo.push_back(t);
+    b.eraseC(abbreviated_rand);
+}
 
 void PilhaJogo::muda_cor(int cor) {
     if (cor == 1)

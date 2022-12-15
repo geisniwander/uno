@@ -37,12 +37,6 @@ ___
 **(4+)**|<p align="justify"> O jogador escolhe qual deve ser a cor para prosseguir o jogo, além de fazer o próximo jogador comprar quatro cartas e perder sua vez de jogar.</p>|<p align="justify"> Esta carta só deve ser jogada quando a pessoa não possuir outra para jogar, senão pode ser penalizada.</p>
 ___
 
-Para Iniciar o jogo, é necessário escolher a ação S/N no menu:
-
-<h1 align="center">
-    <img src="midia/menu.png"> 
-</h1>
-
  Quando o jogo inicia o sistema gera o baralho de jogo e sorteia 2 baralhos de jogador com 7 cartas cada, o jogo sempre começa com o jogador 1.
 
  Na tela, irá aparecer as informações de qual jogador é a vez, também, as cartas que ele têm e a carta que esta na pilha.

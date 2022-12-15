@@ -13,11 +13,7 @@ class Carta {
     std::string tipo = "";
 
    public:
-    Carta(std::string a, std::string b, std::string c) {
-        cor = a;
-        valor = b;
-        tipo = c;
-    }
+    Carta(std::string a, std::string b, std::string c);
     ~Carta() = default;
     std::string get_cor();
     std::string get_valor();
